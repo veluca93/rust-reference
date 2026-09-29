@@ -240,7 +240,7 @@ r[attributes.codegen.optimize]
 ## The `optimize` attribute
 
 r[attributes.codegen.optimize.intro]
-The *`optimize` [attribute]* suggests whether a function, inherent method, trait method, or closure should be optimized for size or speed.
+The *`optimize` [attribute]* suggests an optimization goal for the attributed function: size, speed, or none.
 
 This attribute has no effect if optimizations are disabled (i.e. `opt-level` is `0`).
 
@@ -267,13 +267,13 @@ The syntax for the `optimize` attribute is:
 ```
 
 r[attributes.codegen.optimize.allowed-positions]
-The `optimize` attribute may only be applied to [closures], [async blocks], [free functions], [associated functions] in an [inherent impl] or [trait impl], and associated functions in a [trait definition].
+The `optimize` attribute may only be applied to functions with [bodies] --- [closures], [async blocks], [free functions], [associated functions] in an [inherent impl] or [trait impl], and associated functions in a [trait definition] when those functions have a [default definition].
 
 r[attributes.codegen.optimize.closures]
 Unless overridden, [closures] inherit the `optimize` attribute of the enclosing function.
 
 r[attributes.codegen.optimize.duplicates]
-Applying multiple `optimize` attributes to the same function is an error.
+The `optimize` attribute may be used only once on a function.
 
 r[attributes.codegen.optimize.modes]
 The `optimize` attribute supports these modes:
